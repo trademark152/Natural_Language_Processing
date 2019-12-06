@@ -1,0 +1,28 @@
+1) Explore problem: hmm pos tagger for italian japanese and a surprise language
+* Data: training data (tokenized/tagged), test data (tokenized/need tags)
+* Each txt file has several lines, each line consists of several [word/tag]
+* Need to find P(tag1,tag2,...|word1,word2,...) ~ P(word1,word2,...|tag1,tag2,...)*P(tag1,tag2...)
+* Hidden markov model (see problem 3 hw2) from a tagged corpus
+  - each state is a part-of-speech tag
+  - each tag can emit observations, which are words
+  - transition probabilities are the conditional probabilities of tags sequence
+  - emission probabilities are the conditional probabilities of words given tags.
+  - The start state is the beginning of a sentence, which is not a partof-speech tag
+* Note that backtrack pointer applies to all state nodes (need to find for all nodes)
+
+2) Methods: need the following functions:
+* Read txt file to dict:
+
+* Sample decoding with a sentence consisting of 3 words and a tagset consisting of 4 tags
+wordSequence = [word1, word2, word3]
+viterbi = [[0,0,0], [0,0,0],  [0,0,0], [a,b,c], [0,0,0]]
+  each element represents the probability of P(tag|word)
+  for example: c=P(tag4|word3)
+backtrack =  [[0,0,0], [0,0,0],  [0,0,0], [0,0,0], [0,0,0]]
+
+* speed up process by inserting continue command when prob = 0
+
+3) executions
+* run command in directory C:\Users\trade\Dropbox\Classes\Spring 2019\CSCI544\HW\PA\PA3>
+* to train: python hmmlearn3.py it_isdt_train_tagged.txt
+* to decode: python hmmdecode3.py it_isdt_dev_raw.txt

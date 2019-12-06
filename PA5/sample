@@ -1,0 +1,14 @@
+import tensorflow as tf
+state_size = 20
+rnn_cell = tf.keras.layers.SimpleRNNCell(state_size)
+states = []
+...
+states.append(cur)state
+max_length = 100
+num_terms = 1000
+embeddings = tf.get_variable('embeddings', [num_terms, 10])
+x = tf.placeholder(tf.int64,[None, max_length])
+xemb = tf.nn.embedding.lookup(embeddings,x)
+
+for i in xrange(max_length)
+  PROVIDE states

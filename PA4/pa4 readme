@@ -1,0 +1,10 @@
+X = [X1, X2, X3,...]T of which X1 is a row vector representing document/commment 1. X1 has dimension 1*V with V being the size of the vocab and X1i being the number of times word i appears in that document/comment
+
+net = tf.fully_connected (net,...) = net*Y
+
+STEPS TO PERFORM:
+- get dataset x_train, y_train, x_test, y_test
+- INITIALIZE lambda, placeholders x y, boolean is_training
+- BUILD inference network architecture:net = BuildInferenceNetwork(x, l2_reg_val, is_training)
+  ~ for each layer: net = tf.contrib.layers.fully_connected(net, 10, activation_fn=None, weights_regularizer=l2_reg)
+  ~ can perform dropout, activation func separately

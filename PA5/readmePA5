@@ -1,0 +1,6 @@
+bai tap: assignment.pdf
+starter code: ban original thi la starterOrigin.py
+version moi nhat ma t lam: starter3.py
+run test: chay tren command la python start3.py it_isdt_train_tagged.txt
+txt files: co 6 files text la data (italian and japanese)
+lecture slides support: folder tensorflow (sample code thi t copy het vao starter3.py roi)

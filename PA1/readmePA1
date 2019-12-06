@@ -1,0 +1,23 @@
+Naive Bayes text classification:
+1) Specify path folder of training data, go to each text file
+2) Do tokenization: separate words, lowercase all words,
+3) Add words to corresponding baskets: pd,pt,nd,nt
+* Based on training data's classification, you construct a dictionary with keys are words and values are another dict{category: countCategory} {word1:{pd:countPd, pt:countPt,...},word2:{},...}
+
+4) keep track of the count and calculate
+* Naive bayes: calculate posterior based on prior and conditional probabilites
+P(class|words) ~ P(words|class)*P(class) ~ P(word1|class)^k1*P(word2|class)^k2...*P(class)
+
+
+# Info
+# fileOut.write("""Naive Bayes text classification:\n
+# 1) Specify path folder of training data, go to each text file\n
+# 2) Do tokenization: separate words, lowercase all words, \n
+# 3) Add words to corresponding baskets: pd,pt,nd,nt \n
+#  Based on training data's classification, you construct a dictionary with keys are words and values are another dict{category: countCategory} {word1:{pd:countPd, pt:countPt,...},word2:{},...}\n
+# 4) keep track of the count and calculate \n
+#  Naive bayes: calculate posterior based on prior and conditional probabilites \n
+# P(class|words) ~ P(words|class)*P(class) ~ P(word1|class)^k1*P(word2|class)^k2...*P(class)\n""")
+
+Problems:
+punctuation

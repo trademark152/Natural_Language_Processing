@@ -1,0 +1,22 @@
+Perceptron model to classify reviews
+2 models: vanilla and average
+1) Big idea:
+- Training:
+  ~ Define paths to each file to know the true label, text content and file name
+  ~ Tokenize input document --> create a document with name, text content, label, word frequency
+  ~ Initialize weights and bias for each kind of models: w={word1:weight1, word2:weight2...}, b={word1:bias1,...}
+  ~ Loop through each document, loop through each word in document
+    ` summation of weightWord * wordFrequecy
+    ` take product of summation with true label of that doc, check the sign
+    ` if smaller than 0 then update weightWord += label*wordFrequency, biasWord += label
+  ~ write weight and bias to output file
+  ~ Run shell command
+  
+- Testing:
+  ~ Specify which models to use: Vanilla or Average, import model file and extract model parameters
+  ~ Locate paths to testing files (to know the true label)
+  ~ Tokenize input document --> create a document with name, text content, label, word frequency
+  ~ Classify each document by multiplying weights with frequency: 1 POS or TRU, -1 then NEG or DEC
+  ~ Run shell command
+
+1) Vanilla model:

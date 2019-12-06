@@ -1,0 +1,69 @@
+** STARTUP:
+open cmd prompt
+cd to desired folder to store the jupyter notebook file
+use conda... to install necessary packages
+activate MinhEnv to open a virtual environment
+jupyter notebook to open jupyter notebook
+work with tensorflow
+
+
+
+* BASIC SYNTAX
+import tensorflow as tf # import tensorflow to python
+
+* INITIALIZE VARIABLES to build computational graph
+a = tf.placeholder(tf.float32,[]) #store a as a leaf node and placeholder for float32
+w = tf.Variable(0.0, name='w')
+x_list = tf.placeholder(tf.float32, [None], name='x')
+x3 = tf.constant([5])
+x4 = tf.constant([6])
+x1 = tf.constant(5)
+x2 = tf.constant(6)
+
+* BASIC OPERATIONS: all math operators are element wise
+y = a+3;
+error = (w - x_list) ** 2
+result = tf.mul(x1,x2)
+result2 = tf.matmul(x3,x4) # more efficient than x1*x2
+
+print(result)
+
+* MATH OPERATORS:
+grads = tf.gradients(error, [w])   # derivative of error w.r.t. [w] is a scalar. Sum implied?
+gw = grads[0]
+tf.stop_gradient() is useful for not propagating gradients backwards
+tf.custom_gradient() is useful for implementing backprop through discrete output functions
+
+
+
+* ASSIGN: only applicable to variables but not placeholders
+assign_op = w.assign(w - gw * learn_rate)
+
+* COLLECTIONS: While constructing Model, most functions automatically adds Tensors to collections. Model Optimization retrieves Tensors from collections
+tf.global_variables()
+tf.trainable_variables()  # By default, all variables are made “trainable”
+tf.losses.get_regularization_losses()
+tf.losses.get_losses()
+
+
+* RUN: build a session
+sess = tf.Session() # start C++ backend
+sess.run(y,{a:2)  # run the program by assigning a=3
+sess.run(tf.global_variables_initializer())
+sess.close()
+
+with tf.Session() as sess:
+  output = sess.run(results)
+  print(output)  # automatically close
+
+* PRINT
+print 'Converged to %f' % sess.run(w)
+
+* TENSORBOARD: tool to visualize tensorflow graph, plot quantitative metrics
+
+* SAVE AND RESTORE:
+use pickle to save and restore
+
+* is_training: a Boolean operator
+During training steps: feed as True. During measuring accuracy on validation: feed as False.
+In the former, it will do BatchNorm and Dropout. In the latter, it uses BatchNorm statistics and no Dropout.
